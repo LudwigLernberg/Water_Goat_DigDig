@@ -43,7 +43,10 @@ public class CameraRelativeMovement : MonoBehaviour
         {
             // Rotate player smoothly toward movement direction
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed); }
-    } 
-} 
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
+            // Move player
+            transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        }
+    }
+}
