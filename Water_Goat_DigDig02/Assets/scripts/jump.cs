@@ -7,14 +7,16 @@ public class jump : MonoBehaviour
 
     public float JumpPower;
     public Rigidbody rb;
-    private bool onFloor = true;
+
+    float timeToNextJump = 0;
+
 
     private bool canJump = true;
     private bool isJumping;
 
     private float JumpingPower = 10f;
     private float JumpingTime = 0.2f;
-    private float JumpingCooldown = 10f;
+    private float JumpingCooldown = 2f;
 
 
     void Start()
@@ -25,20 +27,13 @@ public class jump : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)&& onFloor == true)
+        if (Input.GetKeyDown(KeyCode.Space) && timeToNextJump < Time.time)
         {
-            rb.velocity = Vector3.up * JumpingPower;
+            Debug.Log("hjfghjk");
+            rb.velocity = new Vector3(transform.localScale.x * JumpingPower, 10f);
+            timeToNextJump = Time.time + JumpingCooldown;
         }
     }
 
-    private IEnumerator Jump()
-    {
-        canJump = false;
-        isJumping = true;
-        rb.velocity = new Vector3(transform.localScale.x * JumpingPower, 0f);
-        yield return new WaitForSeconds(JumpingTime);
-        isJumping = false;
-        yield return new WaitForSeconds(JumpingCooldown);
-        canJump = true;
-    }
+   
 }

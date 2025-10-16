@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1a22b5aa39c3943a38ee6a96e37b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpPower: 1
+  JumpPower: 100
   rb: {fileID: 2118581973}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
