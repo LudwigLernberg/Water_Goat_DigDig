@@ -873,6 +873,7 @@ GameObject:
   - component: {fileID: 2118581976}
   - component: {fileID: 2118581975}
   - component: {fileID: 2118581973}
+  - component: {fileID: 2118581982}
   - component: {fileID: 2118581979}
   - component: {fileID: 2118581980}
   - component: {fileID: 2118581981}
@@ -1031,6 +1032,20 @@ MonoBehaviour:
   mouseSensitivity: 2
   distanceFromPlayer: 5
   heightOffset: 2
+--- !u!114 &2118581982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118581971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1a22b5aa39c3943a38ee6a96e37b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpPower: 1
+  rb: {fileID: 2118581973}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
