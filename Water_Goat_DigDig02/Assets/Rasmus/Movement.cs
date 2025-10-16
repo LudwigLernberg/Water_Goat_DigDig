@@ -1,52 +1,39 @@
 using UnityEngine;
 
-public class CameraRelativeMovement : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class SnappyPlayerMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    public float moveSpeed = 5f;
-    public float rotationSpeed = 10f;
+    public float moveSpeed = 10f;
+    public Transform orientation; // Usually your camera
 
-    [Header("Camera Settings")]
-    public Transform cameraTransform; // Assign your main camera here
+    private Rigidbody rb;
 
     void Start()
     {
-        if (cameraTransform == null)
-            cameraTransform = Camera.main.transform;
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
 
-    void Update()
-    {
-        HandleMovement();
-    }
-
-    void HandleMovement()
+    void FixedUpdate()
     {
         // Get input
-        float horizontal = Input.GetAxis("Horizontal"); // A/D
-        float vertical = Input.GetAxis("Vertical");     // W/S
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
-        // Calculate movement direction relative to camera
-        Vector3 camForward = cameraTransform.forward;
-        Vector3 camRight = cameraTransform.right;
+        // Calculate direction relative to orientation
+        Vector3 forward = orientation.forward;
+        Vector3 right = orientation.right;
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
 
-        // Keep movement on the XZ plane
-        camForward.y = 0f;
-        camRight.y = 0f;
+        Vector3 moveDir = (forward * vertical + right * horizontal).normalized;
 
-        camForward.Normalize();
-        camRight.Normalize();
-
-        Vector3 moveDirection = (camForward * vertical + camRight * horizontal).normalized;
-
-        if (moveDirection.magnitude >= 0.1f)
-        {
-            // Rotate player smoothly toward movement direction
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-            // Move player
-            transform.position += moveDirection * moveSpeed * Time.deltaTime;
-        }
+        // Apply velocity directly on XZ
+        Vector3 newVelocity = moveDir * moveSpeed;
+        newVelocity.y = rb.velocity.y; // keep existing vertical velocity (gravity, jump if any)
+        rb.velocity = newVelocity;
     }
 }
