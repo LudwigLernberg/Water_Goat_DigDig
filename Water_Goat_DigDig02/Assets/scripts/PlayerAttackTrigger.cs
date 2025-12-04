@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*public class PlayerAttackTrigger : MonoBehaviour
+public class PlayerAttackTrigger : MonoBehaviour
 {
     [Header("Attack settings")]
     public GameObject hitboxObject; // child with BoxCollider(isTrigger)
@@ -62,7 +62,7 @@ using UnityEngine;
         alreadyHit.Add(other);
 
         // Look for IDamageable (preferred) or EnemyHealth
-        var dmgable = other.GetComponentInParent<IDamageable>();
+       /* var dmgable = other.GetComponentInParent<IDamageable>();
         if (dmgable != null)
         {
             dmgable.TakeDamage(damage);
@@ -74,7 +74,7 @@ using UnityEngine;
         {
             enemy.TakeDamage(damage);
             return;
-        }
+        }*/
     }
-}*/
+}
 
