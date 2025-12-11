@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,4 @@ public class WeaponSO : ScriptableObject
     public Sprite item_sprite;
 }
 
-public enum itemType { Hammer };
-
-
-
+public enum itemType { Hammer, Machete, Mace, Club };
