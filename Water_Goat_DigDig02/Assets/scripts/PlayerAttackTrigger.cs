@@ -13,6 +13,11 @@ public class PlayerAttackTrigger : MonoBehaviour
     float lastAttackTime = -999f;
     float attackEndTime = 0f;
     HashSet<Collider> alreadyHit;
+    public interface IDamageable
+    {
+        void TakeDamage(int amount);
+    }
+
 
     void Start()
     {
@@ -62,7 +67,7 @@ public class PlayerAttackTrigger : MonoBehaviour
         alreadyHit.Add(other);
 
         // Look for IDamageable (preferred) or EnemyHealth
-       /* var dmgable = other.GetComponentInParent<IDamageable>();
+       var dmgable = other.GetComponentInParent<IDamageable>();
         if (dmgable != null)
         {
             dmgable.TakeDamage(damage);
@@ -74,7 +79,7 @@ public class PlayerAttackTrigger : MonoBehaviour
         {
             enemy.TakeDamage(damage);
             return;
-        }*/
+        }
     }
 }
 
