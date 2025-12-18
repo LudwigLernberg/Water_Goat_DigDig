@@ -1,36 +1,36 @@
 using UnityEngine;
 
-public class PlayerRotateWithCamera : MonoBehaviour
+public class RotateRelativeToCamera : MonoBehaviour
 {
-    public float rotationSpeed = 10f;
-    public Transform cameraTransform; // Assign your main camera
+    public Transform cameraTransform;  // Assign your main camera here
+    public float rotationSpeed = 10f;  // How fast the character rotates
 
     void Update()
     {
-        // Get raw input
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        // Get input
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        Vector3 input = new Vector3(h, 0f, v);
+        // Combine input into a direction vector
+        Vector3 inputDirection = new Vector3(horizontal, 0f, vertical);
 
-        if (input.magnitude >= 0.1f)
+        if (inputDirection.sqrMagnitude > 0.01f)
         {
-            // Camera-relative directions
-            Vector3 camForward = cameraTransform.forward;
-            camForward.y = 0;
-            camForward.Normalize();
+            // Convert input direction relative to camera
+            Vector3 cameraForward = cameraTransform.forward;
+            Vector3 cameraRight = cameraTransform.right;
 
-            Vector3 camRight = cameraTransform.right;
-            camRight.y = 0;
-            camRight.Normalize();
+            // Flatten to horizontal plane
+            cameraForward.y = 0f;
+            cameraRight.y = 0f;
+            cameraForward.Normalize();
+            cameraRight.Normalize();
 
-            // Convert input to world direction relative to camera
-            Vector3 moveDir = camForward * v + camRight * h;
+            Vector3 moveDirection = cameraForward * vertical + cameraRight * horizontal;
 
-            // Rotate player to face moveDir
-            transform.rotation = Quaternion.Slerp(transform.rotation,
-                                                  Quaternion.LookRotation(moveDir),
-                                                  rotationSpeed * Time.deltaTime);
+            // Rotate character to face moveDirection
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 }
