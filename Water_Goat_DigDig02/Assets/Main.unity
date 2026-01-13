@@ -346,7 +346,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0, g: 0.6603774, b: 0.041800402, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc510df0f90cae34da885b8a398cbea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 25
 --- !u!1 &866936067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,7 +2424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1a22b5aa39c3943a38ee6a96e37b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 70
+  jumpForce: 50
   groundMask:
     serializedVersion: 2
     m_Bits: 8
@@ -2501,7 +2501,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  groundCheckDistance: 3
+  groundCheckDistance: 1
 --- !u!114 &2118581987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2514,22 +2514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5dfcbad5961d204494cc7f257f1e6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2118581977}
-  camTransform: {fileID: 1428716239}
-  distance: 1
-  sensitivityX: 1
-  sensitivityY: 1
-  distancePanAmount: 1
-  currentX: 0
-  currentY: 0
-  i: 0
-  distancePan: 0
-  ii: 0
-  follow: 0
-  player: {fileID: 0}
-  playerController: {fileID: 0}
-  a: {x: 0, y: 0, z: 0}
-  b: {x: 0, y: 0, z: 0}
 --- !u!143 &2118581988
 CharacterController:
   m_ObjectHideFlags: 0
