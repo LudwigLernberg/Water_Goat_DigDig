@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc510df0f90cae34da885b8a398cbea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  health: 100
 --- !u!1 &866936067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,6 +2308,7 @@ GameObject:
   - component: {fileID: 2118581986}
   - component: {fileID: 2118581987}
   - component: {fileID: 2118581988}
+  - component: {fileID: 2118581989}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -2510,7 +2511,7 @@ MonoBehaviour:
   hitboxObject: {fileID: 1058166429}
   attackDuration: 0.15
   attackCooldown: 0.3
-  damage: 25
+  damage: 50
   attackKey: 323
 --- !u!114 &2118581985
 MonoBehaviour:
@@ -2593,6 +2594,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2118581989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118581971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbac7c07861661b4986d2a15060e7247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2124355982
 GameObject:
   m_ObjectHideFlags: 0
