@@ -35,7 +35,11 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
+<<<<<<< Updated upstream:Water_Goat_DigDig02/Assets/Place_holder_sprits/Assets/teamwater_playermodel.fbx.meta
     globalScale: 50
+=======
+    globalScale: 4
+>>>>>>> Stashed changes:Water_Goat_DigDig02/Assets/Place_holder_sprits/Assets/Placeholder_hammer.fbx.meta
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -90,7 +94,11 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+<<<<<<< Updated upstream:Water_Goat_DigDig02/Assets/Place_holder_sprits/Assets/teamwater_playermodel.fbx.meta
     globalScale: 0.5
+=======
+    globalScale: 0.04
+>>>>>>> Stashed changes:Water_Goat_DigDig02/Assets/Place_holder_sprits/Assets/Placeholder_hammer.fbx.meta
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
