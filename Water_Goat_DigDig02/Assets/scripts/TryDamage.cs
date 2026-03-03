@@ -14,6 +14,7 @@ public class HitboxColliderForwarder : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         player?.TryDamage(other);
+        Debug.Log("uyvb");
     }
 }
 
