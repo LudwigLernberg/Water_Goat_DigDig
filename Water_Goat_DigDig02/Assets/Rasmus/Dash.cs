@@ -15,7 +15,9 @@ public class DashForward : MonoBehaviour
         {
             Dash();
             lastDashTime = Time.time;
+
         }
+
     }
 
     void Dash()
@@ -27,5 +29,6 @@ public class DashForward : MonoBehaviour
 
         // Move the player instantly
         transform.position += forward * dashDistance;
+
     }
 }
