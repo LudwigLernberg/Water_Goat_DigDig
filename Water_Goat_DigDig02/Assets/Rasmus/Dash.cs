@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class DashForward : MonoBehaviour
+
 {
     [Header("Dash Settings")]
     public float dashDistance = 10f;       // How far to dash
@@ -31,4 +32,6 @@ public class DashForward : MonoBehaviour
         transform.position += forward * dashDistance;
 
     }
+    public GameObject dashCylinderPrefab;
+    public float cylinderLifetime = 0.3f;
 }
